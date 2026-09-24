@@ -1581,3 +1581,81 @@ footer {
     display: none;
   }
 }
+/* =========================================
+   FOUNDER IMAGE — RESPONSIVE + ANIMATED FRAME
+   ========================================= */
+
+.founder-frame {
+  position: relative;
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 8px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.founder-frame::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 45deg,
+    currentColor 90deg,
+    transparent 135deg,
+    transparent 225deg,
+    currentColor 270deg,
+    transparent 315deg
+  );
+  animation: founderBorderSpin 6s linear infinite;
+}
+
+.founder-frame::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--bg, #080808);
+  z-index: 1;
+}
+
+.founder-image {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+@keyframes founderBorderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* PHONE */
+@media (max-width: 768px) {
+  .founder-image-wrap {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .founder-frame {
+    width: 100%;
+    padding: 6px;
+  }
+
+  .founder-image {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-image-wrap {
+    max-width: 250px;
+  }
+}
