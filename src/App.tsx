@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Training from "./pages/Training";
 import {
   ArrowRight,
   Check,
@@ -64,6 +65,9 @@ const services = [
 ];
 
 function App() {
+    if (window.location.pathname === "/training") {
+    return <Training />;
+  }
   const [theme, setTheme] = useState<Theme>("obsidian");
   const [menuOpen, setMenuOpen] = useState(false);
   const [themeOpen, setThemeOpen] = useState(false);
@@ -112,7 +116,10 @@ function App() {
           <a href="#process" onClick={() => setMenuOpen(false)}>
             Process
           </a>
-
+          <a href="/training" onClick={() => setMenuOpen(false)}>
+           Training
+ </a>
+   
           <a href="#contact" onClick={() => setMenuOpen(false)}>
             Contact
           </a>
